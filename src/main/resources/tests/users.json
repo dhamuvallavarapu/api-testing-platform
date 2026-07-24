@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Get User",
+    "method": "GET",
+    "url": "https://jsonplaceholder.typicode.com/users/1",
+    "headers": {},
+    "body": "",
+    "expectedStatus": 200,
+    "expectedJsonPath": {
+      "id": 1,
+      "name": "Leanne Graham"
+    }
+  }
+]
