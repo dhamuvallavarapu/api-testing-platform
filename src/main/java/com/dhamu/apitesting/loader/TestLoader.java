@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestLoader {
@@ -22,5 +23,28 @@ public class TestLoader {
         } catch (IOException e) {
             throw new RuntimeException("Failed to load test cases: " + filePath, e);
         }
+    }
+
+    public List<TestCase> loadAllTests(String folderPath) {
+
+        List<TestCase> allTests = new ArrayList<>();
+
+        File folder = new File(folderPath);
+
+        File[] files = folder.listFiles();
+
+        if (files == null) {
+            return allTests;
+        }
+
+        for (File file : files) {
+
+            if (file.isFile() && file.getName().endsWith(".json")) {
+
+                allTests.addAll(loadTests(file.getPath()));
+            }
+        }
+
+        return allTests;
     }
 }

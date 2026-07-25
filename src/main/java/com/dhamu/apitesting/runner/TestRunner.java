@@ -18,7 +18,7 @@ public class TestRunner {
 
         TestLoader loader = new TestLoader();
 
-        List<TestCase> tests = loader.loadTests("src/main/resources/tests/users.json");
+        List<TestCase> tests = loader.loadAllTests("src/main/resources/tests");
 
         System.out.println("\nLoaded Tests : " + tests.size());
 
